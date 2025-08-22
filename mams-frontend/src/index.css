@@ -1,0 +1,348 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -30px, 0);
+  }
+  70% {
+    transform: translate3d(0, -15px, 0);
+  }
+  90% {
+    transform: translate3d(0, -4px, 0);
+  }
+}
+
+/* Animation classes */
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.animate-pulse-slow {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce 2s infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* React Select Custom Styles */
+.react-select__control {
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db;
+  padding: 0.25rem;
+  box-shadow: none;
+  transition: border-color 0.2s;
+  min-height: 2.5rem;
+}
+
+.react-select__control:hover {
+  border-color: #4b5563;
+}
+
+.react-select__control--is-focused {
+  border-color: #10b981;
+  box-shadow: 0 0 0 1px #10b981;
+}
+
+.react-select__menu {
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.react-select__option--is-focused {
+  background-color: #f3f4f6;
+}
+
+.react-select__option--is-selected {
+  background-color: #10b981;
+  color: white;
+}
+
+.react-select__option--is-selected:hover {
+  background-color: #059669;
+}
+
+.react-select__placeholder {
+  color: #9ca3af;
+}
+
+.react-select__single-value {
+  color: #374151;
+}
+
+/* Custom Dropdown Styles */
+.dropdown-el {
+  position: relative;
+  display: inline-block;
+  min-height: 2em;
+  max-height: 2em;
+  overflow: hidden;
+  cursor: pointer;
+  text-align: left;
+  white-space: nowrap;
+  color: #444;
+  outline: none;
+  border: 0.06em solid transparent;
+  border-radius: 1em;
+  background-color: white;
+  transition: 0.3s all ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.dropdown-el.open {
+  max-height: 15em;
+  border-color: #999;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-el::after {
+  content: '';
+  position: absolute;
+  right: 0.8em;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 0.3em solid transparent;
+  border-right: 0.3em solid transparent;
+  border-top: 0.3em solid #999;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-el.open::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.dropdown-el input[type="radio"] {
+  display: none;
+}
+
+.dropdown-el label {
+  display: block;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.dropdown-el label:hover {
+  background-color: #f3f4f6;
+}
+
+.dropdown-el input[type="radio"]:checked + label {
+  background-color: #10b981;
+  color: white;
+}
+
+/* Disabled state */
+.dropdown-el.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #f5f5f5;
+}
+
+.dropdown-el.disabled::after {
+  opacity: 0.5;
+}
+
+/* Prevent text selection on dropdown */
+.dropdown-el {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Button animations */
+.btn-animate {
+  transition: all 0.2s ease;
+}
+
+.btn-animate:hover {
+  transform: translateY(-1px);
+}
+
+.btn-animate:active {
+  transform: translateY(0);
+}
+
+/* Loading spinner */
+.spinner {
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #10b981;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #10b981, #059669);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Custom focus styles */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2;
+}
+
+/* Table styles */
+.table-modern {
+  @apply w-full border-collapse;
+}
+
+.table-modern th {
+  @apply px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-gray-50 border-b border-gray-200;
+}
+
+.table-modern td {
+  @apply px-6 py-4 whitespace-nowrap text-sm text-gray-900 border-b border-gray-100;
+}
+
+.table-modern tbody tr:hover {
+  @apply bg-gray-50;
+}
+
+/* Form input styles */
+.input-modern {
+  @apply block w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200;
+}
+
+/* Badge styles */
+.badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.badge-success {
+  @apply bg-green-100 text-green-800;
+}
+
+.badge-warning {
+  @apply bg-yellow-100 text-yellow-800;
+}
+
+.badge-error {
+  @apply bg-red-100 text-red-800;
+}
+
+.badge-info {
+  @apply bg-blue-100 text-blue-800;
+}
+
+/* Responsive utilities */
+@media (max-width: 640px) {
+  .mobile-hidden {
+    display: none;
+  }
+  
+  .mobile-full {
+    width: 100%;
+  }
+}
+
+@media (min-width: 641px) {
+  .desktop-hidden {
+    display: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-break {
+    page-break-before: always;
+  }
+}
