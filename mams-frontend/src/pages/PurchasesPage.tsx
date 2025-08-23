@@ -200,21 +200,21 @@ const PurchasesPage: React.FC = () => {
   );
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="space-y-4 lg:space-y-6">
       {/* Add Form */}
       {canCreate && (
       <form
   onSubmit={handleSubmit}
-  className="bg-white p-6 rounded-2xl shadow space-y-4 max-w-xl"
+  className="bg-white p-4 lg:p-6 rounded-xl shadow-sm border border-gray-100 space-y-4"
 >
-  <h2 className="text-lg font-semibold">Add Purchase</h2>
-  <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+  <h2 className="text-lg font-semibold text-gray-900">Add Purchase</h2>
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
     <input
       type="text"
       placeholder="Item Name"
       value={item}
       onChange={(e) => setItem(e.target.value)}
-      className="w-full border rounded-lg px-3 py-2"
+      className="w-full border border-gray-200 rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200"
       required
     />
     <input
@@ -223,7 +223,7 @@ const PurchasesPage: React.FC = () => {
       placeholder="Quantity"
       value={quantity}
       onChange={(e) => setQuantity(e.target.value)}
-      className="w-full border rounded-lg px-3 py-2"
+      className="w-full border border-gray-200 rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200"
       required
     />
     <input
@@ -233,7 +233,7 @@ const PurchasesPage: React.FC = () => {
       placeholder="Price"
       value={price}
       onChange={(e) => setPrice(e.target.value)}
-      className="w-full border rounded-lg px-3 py-2"
+      className="w-full border border-gray-200 rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200"
       required
     />
     <CustomDropdown
@@ -244,11 +244,13 @@ const PurchasesPage: React.FC = () => {
       name="baseId"
       disabled={isBaseCommander}
     />
+  </div>
+  <div className="flex flex-col sm:flex-row gap-3">
     <button
       type="submit"
-      className="bg-green-700 text-white px-4 py-2 rounded-lg hover:bg-green-800"
+      className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors text-sm lg:text-base"
     >
-      Add
+      Add Purchase
     </button>
   </div>
   {isBaseCommander && (
@@ -261,11 +263,11 @@ const PurchasesPage: React.FC = () => {
 
 
       {/* Table */}
-      <div className="bg-white p-6 rounded-2xl shadow">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold">Purchase History</h2>
-          <div className="text-sm">
-            <span className="mr-3">
+      <div className="bg-white p-4 lg:p-6 rounded-xl shadow-sm border border-gray-100">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
+          <h2 className="text-lg font-semibold text-gray-900">Purchase History</h2>
+          <div className="text-sm flex flex-col sm:flex-row gap-2 sm:gap-4">
+            <span>
               Records: <b>{filteredPurchases.length}</b>
             </span>
             <span>
@@ -276,8 +278,8 @@ const PurchasesPage: React.FC = () => {
 
         {/* Filters */}
         <div className="mb-6 p-4 bg-gray-50 rounded-lg">
-          <h3 className="text-md font-medium mb-3">Filters</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+          <h3 className="text-md font-medium mb-3 text-gray-900">Filters</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Equipment Type</label>
               <CustomDropdown
@@ -294,7 +296,7 @@ const PurchasesPage: React.FC = () => {
                 type="date"
                 value={filterStartDate}
                 onChange={(e) => setFilterStartDate(e.target.value)}
-                className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-gray-200 rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200"
               />
             </div>
             <div>
@@ -303,20 +305,20 @@ const PurchasesPage: React.FC = () => {
                 type="date"
                 value={filterEndDate}
                 onChange={(e) => setFilterEndDate(e.target.value)}
-                className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-gray-200 rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200"
               />
             </div>
           </div>
-          <div className="flex gap-2">
+          <div className="flex flex-col sm:flex-row gap-2">
             <button
               onClick={applyFilters}
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-500"
+              className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 focus:ring-2 focus:ring-green-500 transition-colors text-sm"
             >
               Apply Filters
             </button>
             <button
               onClick={clearFilters}
-              className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 focus:ring-2 focus:ring-gray-500"
+              className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 focus:ring-2 focus:ring-gray-500 transition-colors text-sm"
             >
               Clear Filters
             </button>
@@ -324,48 +326,53 @@ const PurchasesPage: React.FC = () => {
         </div>
 
         {loading ? (
-          <p className="text-gray-500">Loading...</p>
+          <div className="flex items-center justify-center py-8">
+            <div className="w-6 h-6 border-2 border-green-500 border-t-transparent rounded-full animate-spin"></div>
+            <span className="ml-2 text-gray-600">Loading...</span>
+          </div>
         ) : filteredPurchases.length === 0 ? (
-          <p className="text-gray-500">No purchases recorded yet.</p>
+          <div className="text-center py-8">
+            <p className="text-gray-500">No purchases recorded yet.</p>
+          </div>
         ) : (
           <div className="overflow-x-auto">
-            <table className="w-full border-collapse">
+            <table className="w-full border-collapse text-sm lg:text-base">
               <thead>
                 <tr className="bg-gray-100 text-left">
-                  <th className="p-2 border">Date</th>
-                  <th className="p-2 border">Item</th>
-                  <th className="p-2 border">Quantity</th>
-                  <th className="p-2 border">Price</th>
-                  <th className="p-2 border">Total</th>
-                  <th className="p-2 border">Location</th>
-                  {canMutate && <th className="p-2 border">Actions</th>}
+                  <th className="p-2 lg:p-3 border text-xs lg:text-sm font-medium">Date</th>
+                  <th className="p-2 lg:p-3 border text-xs lg:text-sm font-medium">Item</th>
+                  <th className="p-2 lg:p-3 border text-xs lg:text-sm font-medium">Quantity</th>
+                  <th className="p-2 lg:p-3 border text-xs lg:text-sm font-medium">Price</th>
+                  <th className="p-2 lg:p-3 border text-xs lg:text-sm font-medium">Total</th>
+                  <th className="p-2 lg:p-3 border text-xs lg:text-sm font-medium">Location</th>
+                  {canMutate && <th className="p-2 lg:p-3 border text-xs lg:text-sm font-medium">Actions</th>}
                 </tr>
               </thead>
               <tbody>
                 {filteredPurchases.map((p) => (
                   <tr key={p.id} className="hover:bg-gray-50">
-                    <td className="p-2 border">
+                    <td className="p-2 lg:p-3 border text-xs lg:text-sm">
                       {p.date ? new Date(p.date).toLocaleDateString() : "-"}
                     </td>
-                    <td className="p-2 border">{p.item}</td>
-                    <td className="p-2 border">{p.quantity}</td>
-                    <td className="p-2 border">{formatINR(p.price)}</td>
-                    <td className="p-2 border">
+                    <td className="p-2 lg:p-3 border text-xs lg:text-sm">{p.item}</td>
+                    <td className="p-2 lg:p-3 border text-xs lg:text-sm">{p.quantity}</td>
+                    <td className="p-2 lg:p-3 border text-xs lg:text-sm">{formatINR(p.price)}</td>
+                    <td className="p-2 lg:p-3 border text-xs lg:text-sm">
                       {formatINR(p.quantity * p.price)}
                     </td>
-                    <td className="p-2 border">{p.location}</td>
+                    <td className="p-2 lg:p-3 border text-xs lg:text-sm">{p.location}</td>
                     {canMutate && (
-                      <td className="p-2 border">
-                        <div className="flex gap-2">
+                      <td className="p-2 lg:p-3 border">
+                        <div className="flex flex-col sm:flex-row gap-1 sm:gap-2">
                           <button
                             onClick={() => openEdit(p)}
-                            className="px-3 py-1 rounded bg-blue-600 text-white hover:bg-blue-700 text-xs"
+                            className="px-2 lg:px-3 py-1 rounded bg-blue-600 text-white hover:bg-blue-700 text-xs transition-colors"
                           >
                             Edit
                           </button>
                           <button
                             onClick={() => confirmDelete(p.id)}
-                            className="px-3 py-1 rounded bg-red-600 text-white hover:bg-red-700 text-xs"
+                            className="px-2 lg:px-3 py-1 rounded bg-red-600 text-white hover:bg-red-700 text-xs transition-colors"
                           >
                             Delete
                           </button>
@@ -377,11 +384,11 @@ const PurchasesPage: React.FC = () => {
 
                 {/* Totals row */}
                 <tr className="bg-gray-100 font-semibold">
-                  <td className="p-2 border" colSpan={4}>
+                  <td className="p-2 lg:p-3 border text-xs lg:text-sm" colSpan={4}>
                     Grand Total
                   </td>
-                  <td className="p-2 border">{formatINR(totalAmount)}</td>
-                  <td className="p-2 border" colSpan={canMutate ? 2 : 1}></td>
+                  <td className="p-2 lg:p-3 border text-xs lg:text-sm">{formatINR(totalAmount)}</td>
+                  <td className="p-2 lg:p-3 border" colSpan={canMutate ? 2 : 1}></td>
                 </tr>
               </tbody>
             </table>
@@ -391,9 +398,9 @@ const PurchasesPage: React.FC = () => {
 
       {/* Edit Modal */}
       {canMutate && editing && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-          <div className="bg-white rounded-2xl shadow-lg p-6 w-full max-w-md">
-            <h3 className="text-lg font-semibold mb-4">Edit Purchase</h3>
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-xl shadow-lg p-4 lg:p-6 w-full max-w-md">
+            <h3 className="text-lg font-semibold mb-4 text-gray-900">Edit Purchase</h3>
             <div className="space-y-3">
               <input
                 type="text"

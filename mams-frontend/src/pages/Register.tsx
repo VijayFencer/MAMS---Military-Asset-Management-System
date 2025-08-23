@@ -80,22 +80,22 @@ const Register: React.FC<{ onSwitchToLogin?: () => void }> = ({ onSwitchToLogin 
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 via-white to-green-100 p-4">
-      <div className="w-full max-w-md">
+      <div className="w-full max-w-sm sm:max-w-md">
         {/* Logo and Header */}
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-green-600 rounded-2xl mb-4 shadow-lg">
-            <span className="text-white text-2xl font-bold">M</span>
+        <div className="text-center mb-6 lg:mb-8">
+          <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-green-600 rounded-xl sm:rounded-2xl mb-3 sm:mb-4 shadow-lg">
+            <span className="text-white text-xl sm:text-2xl font-bold">M</span>
           </div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
             {isAdmin ? "Create New User" : "Register Account"}
           </h1>
-          <p className="text-gray-600">
+          <p className="text-sm sm:text-base text-gray-600">
             {isAdmin ? "Add a new user to the system" : "Create your MAMS account"}
           </p>
         </div>
 
         {/* Register Form */}
-        <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8">
+        <div className="bg-white rounded-xl sm:rounded-2xl shadow-xl border border-gray-100 p-6 sm:p-8">
           {message && (
             <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
               <div className="flex items-center gap-3 text-green-700">
