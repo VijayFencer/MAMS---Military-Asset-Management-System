@@ -110,14 +110,7 @@ const Dashboard: React.FC = () => {
     return new Intl.NumberFormat().format(num);
   };
 
-  const formatINR = (amount: number) => {
-    return new Intl.NumberFormat('en-IN', {
-      style: 'currency',
-      currency: 'INR',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    }).format(amount);
-  };
+
 
   const getBaseOptions = () => {
     if (role === "admin") {

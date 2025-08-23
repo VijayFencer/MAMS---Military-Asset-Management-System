@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 
-const Login: React.FC<{ onSwitchToRegister?: () => void }> = ({ onSwitchToRegister }) => {
+const Login: React.FC = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -129,7 +129,7 @@ const Login: React.FC<{ onSwitchToRegister?: () => void }> = ({ onSwitchToRegist
               <div className="w-full border-t border-gray-200"></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-white text-gray-500">MAMS Management System</span>
+              <span className="px-2 bg-white text-gray-500">Military Asset Management System</span>
             </div>
           </div>
 
