@@ -34,7 +34,6 @@ const Dashboard: React.FC = () => {
   const [loadingDetails, setLoadingDetails] = useState(false);
   const [availableItems, setAvailableItems] = useState<string[]>([]);
   const [loadingItems, setLoadingItems] = useState(false);
-  const [popupPosition, setPopupPosition] = useState({ x: 0, y: 0 });
 
   const clearFilters = () => {
     setItem("");
@@ -231,39 +230,7 @@ const Dashboard: React.FC = () => {
   };
 
   // Handle net movement hover
-  const handleNetMovementHover = (e: React.MouseEvent) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
-    
-    // Calculate center position of the card
-    let x = rect.left + rect.width / 2;
-    let y = rect.bottom + 20; // Add more space below the card
-    
-    // Calculate popup dimensions - increased size
-    const popupWidth = Math.min(windowWidth * 0.98, 1200); // 98% of screen width, max 1200px
-    const popupHeight = Math.min(windowHeight * 0.9, 800); // 90% of screen height, max 800px
-    
-    // Adjust horizontal position to keep popup within viewport
-    if (x + popupWidth / 2 > windowWidth) {
-      x = windowWidth - popupWidth / 2 - 20; // 20px margin from right edge
-    }
-    if (x - popupWidth / 2 < 0) {
-      x = popupWidth / 2 + 20; // 20px margin from left edge
-    }
-    
-    // Adjust vertical position
-    if (y + popupHeight > windowHeight) {
-      // If popup would go below viewport, show it above the card
-      y = rect.top - popupHeight - 20;
-    }
-    
-    // Ensure popup doesn't go above viewport
-    if (y < 20) {
-      y = 20;
-    }
-    
-    setPopupPosition({ x, y });
+  const handleNetMovementHover = () => {
     setShowNetMovementPopup(true);
     loadDetailedMovement();
   };
