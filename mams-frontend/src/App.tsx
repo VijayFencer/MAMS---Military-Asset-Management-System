@@ -8,7 +8,6 @@ import Dashboard from "./pages/Dashboard";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
-import ResponsiveTest from "./pages/ResponsiveTest";
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const navigate = useNavigate();
@@ -38,8 +37,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     { name: "Transfers", path: "/transfers", roles: ["admin", "base_commander", "logistics"] },
     { name: "Assignments", path: "/assignments", roles: ["admin", "base_commander"] },
     { name: "Expenditures", path: "/expenditures", roles: ["admin", "base_commander"] },
-    { name: "Profile", path: "/profile", roles: ["admin", "base_commander", "logistics"] },
-    { name: "Responsive Test", path: "/responsive-test", roles: ["admin", "base_commander", "logistics"] }
+    { name: "Profile", path: "/profile", roles: ["admin", "base_commander", "logistics"] }
   ];
 
   const handleNavigation = (path: string) => {
@@ -199,14 +197,6 @@ function App() {
           <ProtectedRoute>
             <Layout>
               <Profile />
-            </Layout>
-          </ProtectedRoute>
-        } />
-        
-        <Route path="/responsive-test" element={
-          <ProtectedRoute>
-            <Layout>
-              <ResponsiveTest />
             </Layout>
           </ProtectedRoute>
         } />
